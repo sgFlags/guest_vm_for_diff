@@ -17,7 +17,7 @@ asmlinkage int sys_vcpu_info(void)
 	int ret = 0;
 	int i;
 
-	for (i = 0; i < num_online_cpus(); i++) {
+	for_each_online_cpu(i) {
 		ret = vcpu_info(i);
 		if (ret)
 			return ret;
